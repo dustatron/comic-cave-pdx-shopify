@@ -1,1 +1,41 @@
-.image-grid {}
+$color-giftcard-shadow: rgba(0, 0, 0, 0.05);
+
+.image-grid {
+  margin: auto;
+  background: white;
+  display: flex;
+  padding: 5em;
+  box-shadow: 1px 1px 1px $color-giftcard-shadow;
+  justify-content: center;
+  margin-bottom: 51px;
+
+  &-left {
+    width: 60%;
+
+    &-title {
+      font-weight: 700;
+      font-size: 1.6em;
+      padding: 1em 0;
+    }
+  }
+
+  &-right {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    &-img {
+      height: 176px;
+      width: 176px;
+      overflow: hidden;
+      padding: .3em;
+
+      img {
+        height: 100%;
+      }
+    }
+  }
+}

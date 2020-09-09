@@ -1,20 +1,84 @@
+<div class="page-width">
+  <div class="image-grid section-block">
+    {%- assign imageGrid = section.settings -%}
+    <div class="image-grid-left">
+        <div class="image-grid-left-logo">
+            <img src="{{imageGrid.logo | img_url: 'medium'}}" alt="logo">
+        </div>
+
+        <div class="image-grid-left-title">
+            {{imageGrid.title}}
+        </div>
+
+        <div class="image-grid-left-body">
+            {{imageGrid.body}}
+        </div>
+    </div>
+
+    <div class="image-grid-right">
+        <div class="image-grid-right-img">
+            <img src="{{ imageGrid.img1 | img_url: 'medium' }}" alt="store">
+        </div>
+        <div class="image-grid-right-img">
+            <img src="{{ imageGrid.img2 | img_url: 'medium' }}" alt="store">
+        </div>
+        <div class="image-grid-right-img">
+            <img src="{{ imageGrid.img3 | img_url: 'medium' }}" alt="store">
+        </div>
+        <div class="image-grid-right-img">
+            <img src="{{ imageGrid.img4 | img_url: 'medium' }}" alt="store">
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+
 {% schema %}
 {
   "name": "Image Grid",
   "settings" : [
     {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
       "type": "text",
-      "label": "Image Header",
-      "id": "heading"
+      "label": "Title",
+      "id": "title"
+    },
+    {
+      "type": "richtext",
+      "label": "Body Copy",
+      "id": "body"
+    },
+    {
+      "type": "image_picker",
+      "id": "img1",
+      "label": "Top Left"
+    },
+    {
+      "type": "image_picker",
+      "id": "img2",
+      "label": "Top Right"
+    },
+    {
+      "type": "image_picker",
+      "id": "img3",
+      "label": "Bottom Left"
+    },
+    {
+      "type": "image_picker",
+      "id": "img4",
+      "label": "Bottom Right"
     }
   ],
   "presets": [
       {
-        "category": "Custom Content",
-        "name": "Image Grid",
-        "settings": {
-          "heading": "Hello World"
-        }
+        "category": "Comic Cave Content",
+        "name": "Image Grid with Text"
       }
     ]
 }
