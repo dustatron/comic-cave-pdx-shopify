@@ -1,14 +1,18 @@
 <!-- /snippets/comic-card.liquid -->
-
 {%- comment -%}
   The comic card snippet is passed a liquid object, used in this file
   as "product". The object is either "product" or "item", the latter if
-  it is from search results.    
-
+  it is from search results.   
 {%- endcomment -%}
 <a href="{{product.url  }}" class="comic-card-link" >
   {% assign image = product.featured_image %}
     <div class="comic-card">
+      <div class="comic-card-overlay">
+        <div class="comic-card-overlay-btn">
+          View
+        </div>
+      </div>
+
       <div class="comic-card-info">
         <div class="comic-card-info-vender">
           <div class="comic-card-info-vender-title">
@@ -19,23 +23,14 @@
         <div class="comic-card-info-title">
           {{product.title | truncate: 50}}
         </div>
-
       </div>
 
       <div class="comic-card-img">
         <img class="lazyload"
-            data-src="{{ image | img_url: 'medium' }}"
-            data-sizes="auto"
-            data-image
-            alt="{{ image.alt | escape }}">
+          data-src="{{ image | img_url: 'medium' }}"
+          data-sizes="auto"
+          data-image
+          alt="{{ image.alt | escape }}">
       </div>
-
-      <div class="comic-card-view">
-        <div class="comic-card-view-box">
-
-          View
-        </div>
-      </div>
-
     </div>
 </a>
