@@ -1,7 +1,7 @@
 $color-giftcard-shadow: rgba(0, 0, 0, 0.05);
 
 .image-grid {
-  margin: auto;
+
   background: white;
   display: flex;
   padding: 5em;
@@ -9,8 +9,25 @@ $color-giftcard-shadow: rgba(0, 0, 0, 0.05);
   justify-content: center;
   margin-bottom: 51px;
 
+  @include respond(tab-land) {
+    display: block;
+    padding: 2em;
+  }
+
+
+
   &-left {
     width: 60%;
+
+    @include respond(tab-land) {
+      width: 100%;
+    }
+
+    &-logo {
+      @include respond(tab-land) {
+        text-align: center;
+      }
+    }
 
     &-title {
       font-weight: 700;
@@ -27,11 +44,21 @@ $color-giftcard-shadow: rgba(0, 0, 0, 0.05);
     justify-content: center;
     align-items: center;
 
+    @include respond(tab-land) {
+      margin-top: 2em;
+      width: 100%;
+    }
+
     &-img {
       height: 176px;
       width: 176px;
       overflow: hidden;
       padding: .3em;
+
+      @include respond(tab-land) {
+        height: 150px;
+        width: 150px;
+      }
 
       img {
         height: 100%;

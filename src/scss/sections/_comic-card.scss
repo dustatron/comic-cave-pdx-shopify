@@ -6,6 +6,10 @@
   margin: 5px;
   filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.2));
 
+  @include respond(tab-port) {
+    height: 312px;
+  }
+
   &-info {
     position: absolute;
     top: 65%;
@@ -46,7 +50,14 @@
       top: 0;
       left: 0;
       width: 100%;
+
+      @include respond(tab-port) {
+        min-width: 100%;
+        min-height: 100%;
+      }
     }
+
+
   }
 
   &-overlay {

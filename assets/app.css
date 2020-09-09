@@ -7,6 +7,12 @@
   filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.2));
 }
 
+@media only screen and (max-width: 62.5em) {
+  .comic-card {
+    height: 312px;
+  }
+}
+
 .comic-card-info {
   position: absolute;
   top: 65%;
@@ -47,6 +53,13 @@
   width: 100%;
 }
 
+@media only screen and (max-width: 62.5em) {
+  .comic-card-img img {
+    min-width: 100%;
+    min-height: 100%;
+  }
+}
+
 .comic-card-overlay {
   position: absolute;
   opacity: 0;
@@ -80,7 +93,6 @@
 }
 
 .image-grid {
-  margin: auto;
   background: white;
   display: flex;
   padding: 5em;
@@ -89,8 +101,27 @@
   margin-bottom: 51px;
 }
 
+@media only screen and (max-width: 75em) {
+  .image-grid {
+    display: block;
+    padding: 2em;
+  }
+}
+
 .image-grid-left {
   width: 60%;
+}
+
+@media only screen and (max-width: 75em) {
+  .image-grid-left {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 75em) {
+  .image-grid-left-logo {
+    text-align: center;
+  }
 }
 
 .image-grid-left-title {
@@ -108,11 +139,25 @@
   align-items: center;
 }
 
+@media only screen and (max-width: 75em) {
+  .image-grid-right {
+    margin-top: 2em;
+    width: 100%;
+  }
+}
+
 .image-grid-right-img {
   height: 176px;
   width: 176px;
   overflow: hidden;
   padding: 0.3em;
+}
+
+@media only screen and (max-width: 75em) {
+  .image-grid-right-img {
+    height: 150px;
+    width: 150px;
+  }
 }
 
 .image-grid-right-img img {
