@@ -97,7 +97,8 @@
           {% assign grandchild_list_handle = childlink.title | handleize %}
 
           <a href="{{ childlink_url }}" class="meganav__link meganav__link--second-level meganav__link-toggle site-nav__link-toggle meganav__link--has-list{% if childlink.active %} meganav__link--active{% endif %}"  id="SiteNavLabel-{{ grandchild_list_handle }}" aria-controls="SiteNavLinklist-{{ grandchild_list_handle }}" aria-expanded="false"{% if childlink.active %} aria-current="page"{% endif %}>
-            {{ childlink.title | escape }}
+            
+            {{ childlink.title | escape }} 
             {% include 'icon-arrow-right' %}
           </a>
 
@@ -112,12 +113,26 @@
                     {{ grandchildlink.title | escape }}
                   </a>
                 </li>
-              {% endfor %}
-            </ul>
-          </div>
-        {% else %}
-          <a href="{{ childlink_url }}" class="meganav__link meganav__link--second-level{% if childlink.active %} meganav__link--active{% endif %}"{% if childlink.active %} aria-current="page"{% endif %}>
-            {{ childlink.title | escape }}
+                {% endfor %}
+              </ul>
+            </div>
+            {% else %}
+            <a href="{{ childlink_url }}" class="meganav__link meganav__link--second-level{% if childlink.active %} meganav__link--active{% endif %}"{% if childlink.active %} aria-current="page"{% endif %}>
+              <div class="menu-item">
+                <div class="menu-item--left">
+                  <div class="menu-item--left-img">
+                    {% if childlink.object.image %}
+                      <img src="{{ childlink.object.image | img_url: 'small' }}" alt="" />
+                    {% else %}
+                     {%- assign first_product = childlink.object.products[0] -%}
+                      <img src="{{ first_product.featured_image | img_url: 'small' }}" alt="" />
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="menu-item--right">
+                  {{ childlink.title | escape }}
+                </div>
+              </div>
           </a>
         {% endif %}
       </li>
@@ -141,7 +156,7 @@
 
   {% for product in link.object.products limit: number_of_product_columns %}
     <div class="grid__item one-fifth meganav__product">
-      {% include 'product-card', product: product %}
+      {% include 'product-card', product: product %} 
     </div>
   {% endfor %}
 </div>
