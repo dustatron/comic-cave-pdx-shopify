@@ -74,14 +74,27 @@ $color-giftcard-shadow: rgba(0, 0, 0, 0.05);
   width: 100%;
   margin-bottom: 51px;
   padding: 2em;
-  
+  display: flex;
+  justify-content: space-between;
+
+
+  &--submit-form {
+    // border: 1px solid red;
+    width: 50%;
+    background: #fff;
+    clear: left;
+    font: 14px Helvetica, Arial, sans-serif;
+  }
+
   &--list {
     list-style: none;
     display: flex;
     justify-content: center;
+    width: 50%;
 
-   li {
-     padding: 5px;
-   }
+    li {
+      padding: 5px;
+    }
   }
+
 }
