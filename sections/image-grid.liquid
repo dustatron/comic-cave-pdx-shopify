@@ -1,85 +1,158 @@
 <div class="page-width">
-  <div class="image-grid section-block">
-    {%- assign imageGrid = section.settings -%}
-    <div class="image-grid-left">
+  <div class="grid-box">
+
+    <div class="image-grid section-block">
+      {%- assign imageGrid = section.settings -%}
+      <div class="image-grid-left">
         <div class="image-grid-left-logo">
-            <img src="{{imageGrid.logo | img_url: 'medium'}}" alt="logo">
+          <img src="{{imageGrid.logo | img_url: 'medium'}}" alt="logo">
         </div>
 
         <div class="image-grid-left-title">
-            {{imageGrid.title}}
+          {{imageGrid.title}}
         </div>
 
         <div class="image-grid-left-body">
-            {{imageGrid.body}}
+          {{imageGrid.body}}
+
+        <form action="https://comiccavepdx.us5.list-manage.com/subscribe/post?u=d118c8b9cc56fa296f56b446d&amp;id=96f27677c0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+          <div id="mc_embed_signup_scroll">
+        <label for="mce-EMAIL">Subscribe</label>
+        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required="">
+          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d118c8b9cc56fa296f56b446d_96f27677c0" tabindex="-1" value=""></div>
+          <div class="clear">
+            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+          </div>
+        </form>
+
         </div>
+      </div>
+
+      <div class="image-grid-right">
+        <div class="image-grid-right-img">
+          <img src="{{ imageGrid.img1 | img_url: 'medium' }}" alt="store">
+        </div>
+        <div class="image-grid-right-img">
+          <img src="{{ imageGrid.img2 | img_url: 'medium' }}" alt="store">
+        </div>
+        <div class="image-grid-right-img">
+          <img src="{{ imageGrid.img3 | img_url: 'medium' }}" alt="store">
+        </div>
+        <div class="image-grid-right-img">
+          <img src="{{ imageGrid.img4 | img_url: 'medium' }}" alt="store">
+        </div>
+      </div>
     </div>
 
-    <div class="image-grid-right">
-        <div class="image-grid-right-img">
-            <img src="{{ imageGrid.img1 | img_url: 'medium' }}" alt="store">
-        </div>
-        <div class="image-grid-right-img">
-            <img src="{{ imageGrid.img2 | img_url: 'medium' }}" alt="store">
-        </div>
-        <div class="image-grid-right-img">
-            <img src="{{ imageGrid.img3 | img_url: 'medium' }}" alt="store">
-        </div>
-        <div class="image-grid-right-img">
-            <img src="{{ imageGrid.img4 | img_url: 'medium' }}" alt="store">
-        </div>
-    </div>
+    <div class="social-links">
+      <ul class="social-links--list">
+        {%- comment -%}
+        /////////////////////////// FACEBOOK \\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        {%- endcomment -%}
+        <li>
+          <a href="{{ settings.social_facebook_link | escape }}"
+            title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Facebook' }}" target="_blank">
+            {% include 'icon-facebook' %}
+            <span class="icon__fallback-text">Facebook</span>
+          </a>
+        </li>
 
-</div>
+        {%- comment -%}
+        /////////////////////////// TWITTER \\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        {%- endcomment -%}
+        <li>
+          <a href="{{ settings.social_twitter_link | escape }}"
+            title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Twitter' }}" target="_blank">
+            {% include 'icon-twitter' %}
+            <span class="icon__fallback-text">Twitter</span>
+        </li>
+
+        {%- comment -%}
+        /////////////////////////// INSTAGRAM \\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        {%- endcomment -%}
+        <li>
+          <a href="{{ settings.social_instagram_link | escape }}"
+            title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Instagram' }}" target="_blank">
+            {% include 'icon-instagram' %}
+            <span class="icon__fallback-text">Instagram</span>
+          </a>
+        </li>
+
+        {%- comment -%}
+        /////////////////////////// YOUTUBE \\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        {%- endcomment -%}
+        <li>
+          <a href="{{ settings.social_youtube_link | escape }}"
+            title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'YouTube' }}" target="_blank">
+            {% include 'icon-youtube' %}
+            <span class="icon__fallback-text">YouTube</span>
+          </a>
+        </li>
+        {%- comment -%}
+        /////////////////////////// LinkedIn \\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        {%- endcomment -%}
+        <li>
+          <a href="https://www.linkedin.com/company/comic-cave-pdx/" title="Linkedin" target="_blank">
+            {% include 'icon-linkedin' %}
+            <span class="icon__fallback-text">Linkedin</span>
+          </a>
+        </li>
+
+      </ul>
+
+      </a>
+    </div>
+  </div>
 </div>
 
 
 
 {% schema %}
 {
-  "name": "Image Grid",
-  "settings" : [
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo"
-    },
-    {
-      "type": "text",
-      "label": "Title",
-      "id": "title"
-    },
-    {
-      "type": "richtext",
-      "label": "Body Copy",
-      "id": "body"
-    },
-    {
-      "type": "image_picker",
-      "id": "img1",
-      "label": "Top Left"
-    },
-    {
-      "type": "image_picker",
-      "id": "img2",
-      "label": "Top Right"
-    },
-    {
-      "type": "image_picker",
-      "id": "img3",
-      "label": "Bottom Left"
-    },
-    {
-      "type": "image_picker",
-      "id": "img4",
-      "label": "Bottom Right"
-    }
-  ],
-  "presets": [
-      {
-        "category": "Comic Cave Content",
-        "name": "Image Grid with Text"
-      }
-    ]
+"name": "Image Grid",
+"settings" : [
+{
+"type": "image_picker",
+"id": "logo",
+"label": "Logo"
+},
+{
+"type": "text",
+"label": "Title",
+"id": "title"
+},
+{
+"type": "richtext",
+"label": "Body Copy",
+"id": "body"
+},
+{
+"type": "image_picker",
+"id": "img1",
+"label": "Top Left"
+},
+{
+"type": "image_picker",
+"id": "img2",
+"label": "Top Right"
+},
+{
+"type": "image_picker",
+"id": "img3",
+"label": "Bottom Left"
+},
+{
+"type": "image_picker",
+"id": "img4",
+"label": "Bottom Right"
+}
+],
+"presets": [
+{
+"category": "Comic Cave Content",
+"name": "Image Grid with Text"
+}
+]
 }
 {% endschema %}
