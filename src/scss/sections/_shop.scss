@@ -1,0 +1,86 @@
+.shop {
+  display: flex;
+  width: 100%;
+  background: #fff;
+  padding: 2em;
+
+  // Left Screen
+  &-menu {
+    padding: 10px;
+    width: 20%;
+
+      &--title {
+        font-size: 36px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      &--subtitle {
+        font-weight: 100;
+        font-size: 26px;
+        padding-bottom: 1.1em;
+      }
+
+      &--short-by {
+
+        &-short {
+          font-weight: 700;
+          opacity: .5;
+        }
+        
+        &-list {
+          font-weight: 900;
+        } 
+
+
+      }
+
+      &--categories {
+
+        &-items {
+          font-size: 14px;
+          &-list {
+            display: flex;
+            &:not(:last-child) {
+              padding-bottom: 20px;
+            }
+
+            &-box {
+              width: 22px;
+              height: 22px;
+              border: 2px solid rgba(0, 0, 0, 0.3);
+              margin-right: 10px; 
+            }
+            &-item {
+              letter-spacing: -0.04em;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              width: 100%;
+              text-transform: capitalize;
+            }
+          }
+
+        }
+      }
+
+  }
+
+  // Right Screen
+  &-products {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &-item {
+      width: 30%;
+    }
+
+  }
+
+}
+
+.b-border {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 20px 0;
+}
