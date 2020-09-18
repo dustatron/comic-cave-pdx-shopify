@@ -29,37 +29,31 @@
         <div class="image-grid-right-img">
           <img src="{{ imageGrid.img4 | img_url: 'medium' }}" alt="store">
         </div>
-      </div>
+      </div> 
     </div>
 
     <div class="social-links">
-      <div class="social-links--submit-form">
-
-        {%- comment -%}
-        ////////////////////////////////////////
-        ///// Begin Mailchimp Signup Form /////
-        //////////////////////////////////////
-        {%- endcomment -%}
-        <div id="mc_embed_signup" >
-          <form
-            action="https://comiccavepdx.us5.list-manage.com/subscribe/post?u=d118c8b9cc56fa296f56b446d&amp;id=96f27677c0"
-            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
-            target="_blank" novalidate="">
-            <div id="mc_embed_signup_scroll">
-              <label for="mce-EMAIL">Subscribe</label>
-              <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address"
-                required="">
-              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-                  name="b_d118c8b9cc56fa296f56b446d_96f27677c0" tabindex="-1" value=""></div>
-              <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
-                  class="button"></div>
-            </div>
-          </form>
-        </div> {%- comment -%} <---- End mc_embed_signup {%- endcomment -%}
-
+      <div class="social-links--review-links">
+        <ul>
+          <li>
+            <a href="https://search.google.com/local/writereview?placeid=ChIJl2ly3gGolVQRO0yJSu4kQY8" target="_blank">
+              <img src="{{ imageGrid.google | img_url: 'large' }}" alt="google review">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.tripadvisor.com/UserReviewEdit-g52024-d17378297-Comic_Cave_PDX-Portland_Oregon.html" target="_blank">
+              <img src="{{ imageGrid.tripadviser | img_url: 'large' }}" alt="trip advisor">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.ebay.com/usr/comic-cave-pdx" target="_blank">
+              <img src="{{ imageGrid.ebay | img_url: 'large' }}" alt="trip advisor">
+            </a>
+          </li>
+        </ul>
+        
       </div>
-      <ul class="social-links--list">
+      <ul class="social-links--social-icons">
         {%- comment -%}
         /////////////////////////// FACEBOOK \\\\\\\\\\\\\\\\\\\\\\\\\\\\
         {%- endcomment -%}
@@ -119,53 +113,66 @@
   </div>
 </div>
 
-
-
 {% schema %}
-{
-"name": "Image Grid",
-"settings" : [
-{
-"type": "image_picker",
-"id": "logo",
-"label": "Logo"
-},
-{
-"type": "text",
-"label": "Title",
-"id": "title"
-},
-{
-"type": "richtext",
-"label": "Body Copy",
-"id": "body"
-},
-{
-"type": "image_picker",
-"id": "img1",
-"label": "Top Left"
-},
-{
-"type": "image_picker",
-"id": "img2",
-"label": "Top Right"
-},
-{
-"type": "image_picker",
-"id": "img3",
-"label": "Bottom Left"
-},
-{
-"type": "image_picker",
-"id": "img4",
-"label": "Bottom Right"
-}
-],
-"presets": [
-{
-"category": "Comic Cave Content",
-"name": "Image Grid with Text"
-}
-]
+  {
+  "name": "Image Grid",
+  "settings" : [
+    {
+    "type": "image_picker",
+    "id": "logo",
+    "label": "Logo"
+    },
+    {
+    "type": "text",
+    "label": "Title",
+    "id": "title"
+    },
+    {
+    "type": "richtext",
+    "label": "Body Copy",
+    "id": "body"
+    },
+    {
+    "type": "image_picker",
+    "id": "img1",
+    "label": "Top Left"
+    },
+    {
+    "type": "image_picker",
+    "id": "img2",
+    "label": "Top Right"
+    },
+    {
+    "type": "image_picker",
+    "id": "img3",
+    "label": "Bottom Left"
+    },
+    {
+    "type": "image_picker",
+    "id": "img4",
+    "label": "Bottom Right"
+    },
+    {
+    "type": "image_picker",
+    "id": "google",
+    "label": "Google Review Icon"
+    },
+    {
+    "type": "image_picker",
+    "id": "tripadviser",
+    "label": "Trip Advisor Icon"
+    },
+    {
+    "type": "image_picker",
+    "id": "ebay",
+    "label": "ebay Icon"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Comic Cave Content",
+      "name": "Image Grid with Text"
+    }
+  ]
 }
 {% endschema %}

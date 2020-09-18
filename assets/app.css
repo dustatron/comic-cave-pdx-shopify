@@ -137,7 +137,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -145,6 +145,7 @@
   .image-grid-right {
     margin-top: 2em;
     width: 100%;
+    justify-content: center;
   }
 }
 
@@ -157,8 +158,8 @@
 
 @media only screen and (max-width: 75em) {
   .image-grid-right-img {
-    height: 150px;
-    width: 150px;
+    height: auto;
+    width: auto;
   }
 }
 
@@ -170,26 +171,57 @@
   position: relative;
   width: 100%;
   margin-bottom: 51px;
-  padding: 2em;
+  padding: 2em 5em;
   display: flex;
   justify-content: space-between;
 }
 
-.social-links--submit-form {
+@media only screen and (max-width: 75em) {
+  .social-links {
+    flex-direction: column;
+    padding: 1em;
+  }
+}
+
+.social-links--review-links {
   width: 50%;
   background: #fff;
   clear: left;
   font: 14px Helvetica, Arial, sans-serif;
 }
 
-.social-links--list {
+@media only screen and (max-width: 75em) {
+  .social-links--review-links {
+    width: 100%;
+  }
+}
+
+.social-links--review-links ul {
   list-style: none;
   display: flex;
   justify-content: center;
+}
+
+.social-links--review-links ul li {
+  padding: 0 5px;
+}
+
+.social-links--social-icons {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
   width: 50%;
 }
 
-.social-links--list li {
+@media only screen and (max-width: 75em) {
+  .social-links--social-icons {
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
+.social-links--social-icons li {
   padding: 5px;
 }
 
@@ -225,5 +257,59 @@
 .menu-item--right {
   width: 76%;
   padding: 10px;
+}
+
+.email-subscription {
+  display: flex;
+  background: #fff;
+  margin-bottom: 51px;
+  padding: 3em;
+}
+
+@media only screen and (max-width: 75em) {
+  .email-subscription {
+    flex-direction: column;
+    padding: 1em;
+  }
+}
+
+.email-subscription--left {
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  width: 43%;
+  border-radius: 5px;
+  padding: 12px;
+  background: #F0F5FF;
+}
+
+@media only screen and (max-width: 75em) {
+  .email-subscription--left {
+    width: 100%;
+  }
+}
+
+.email-subscription--right {
+  width: 57%;
+  padding: 5px;
+  font-weight: 700;
+  font-size: 1.7em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 75em) {
+  .email-subscription--right {
+    width: 100%;
+  }
+}
+
+.email-subscription--right p {
+  width: 76%;
+}
+
+@media only screen and (max-width: 75em) {
+  .email-subscription--right p {
+    width: 100%;
+  }
 }
 

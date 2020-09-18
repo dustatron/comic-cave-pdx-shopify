@@ -43,12 +43,13 @@ $color-giftcard-shadow: rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 
     @include respond(tab-land) {
       margin-top: 2em;
       width: 100%;
+      justify-content: center;
     }
 
     &-img {
@@ -58,8 +59,8 @@ $color-giftcard-shadow: rgba(0, 0, 0, 0.05);
       padding: .3em;
 
       @include respond(tab-land) {
-        height: 150px;
-        width: 150px;
+        height: auto;
+        width: auto;
       }
 
       img {
@@ -73,24 +74,47 @@ $color-giftcard-shadow: rgba(0, 0, 0, 0.05);
   position: relative;
   width: 100%;
   margin-bottom: 51px;
-  padding: 2em;
+  padding: 2em 5em;
   display: flex;
   justify-content: space-between;
 
 
-  &--submit-form {
+  @include respond(tab-land) {
+    flex-direction: column;
+    padding: 1em;
+  }
+
+  &--review-links {
     // border: 1px solid red;
     width: 50%;
     background: #fff;
     clear: left;
     font: 14px Helvetica, Arial, sans-serif;
+
+    @include respond(tab-land) {
+      width: 100%;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      li {
+        padding: 0 5px;
+      }
+    }
   }
 
-  &--list {
+  &--social-icons {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     width: 50%;
+    @include respond(tab-land) {
+      width: 100%;
+      justify-content: center;
+      margin-top: 20px;
+    }
 
     li {
       padding: 5px;
