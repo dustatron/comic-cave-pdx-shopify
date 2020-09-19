@@ -1,0 +1,89 @@
+
+{%- assign productList = collections.all.products  -%}
+<div class="shop">
+
+  {%- comment -%}
+  -------------  LEFT MENU ----------------
+  {%- endcomment -%}
+  <div class="shop-menu">
+
+    <div class="shop-menu--title b-border">
+      Shop
+    </div>
+ 
+    <div class="shop-menu--categories b-border">
+      <div class="shop-menu--subtitle">
+        Categories
+      </div>
+      <div class="shop-menu--categories-items">
+        {%- assign allCollections = collections -%}
+        {% for collection in allCollections  %}
+       
+          <div class="shop-menu--categories-items-list">
+              <div class="shop-menu--categories-items-list-item">
+                <a href="{{collection.url}}">
+                  {{ collection.title | capitalize }}
+                </a>
+              </div>
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    
+    <div class='shop-menu--categories b-border'>
+      <div class="shop-menu--subtitle">
+        Publishers
+      </div>
+      <div class="shop-menu--categories-items">
+   
+        {% for vendor in shop.vendors %}
+          <div class="shop-menu--categories-items-list">
+            <div class="shop-menu--categories-items-list-item"> 
+              {{ vendor  | link_to_vendor | capitalize }}
+            </div>  
+          </div>
+        {% endfor %}
+      </div>  
+    </div>
+
+  </div> {%- comment -%} <---- END MENU ----> {%- endcomment -%}
+  
+  {%- comment -%}
+  -------------  RIGHT PRODUCT ----------------
+  {%- endcomment -%}
+  <div class="shop-products">
+      {% for product in productList limit:9 %}
+        <div class="shop-products-item">
+            {% include 'product-card' product: product %}
+        </div>
+      {% endfor %}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "en": "Shop"
+    },
+  "settings": [
+      {
+        "type": "checkbox",
+        "id": "product_tags_enable",
+        "label": {
+          "en": "Enable tag filtering"
+        },
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "product_sorting_enable",
+      "label": {
+        "en": "Enable sorting"
+      },
+      "default": true
+    }
+  ]
+}
+{% endschema %}
