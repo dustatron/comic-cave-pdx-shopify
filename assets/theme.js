@@ -1298,15 +1298,15 @@ window.Meganav = (function() {
     }
 
     // Navigate to link href or close menu if already active
-    if ($el.hasClass(this.config.activeClass) && $el.is('a')) {
-      window.location = $el.attr('href');
-      return;
-    }
+    // if ($el.hasClass(this.config.activeClass) && $el.is('a')) {
+    //   window.location = $el.attr('href');
+    //   return;
+    // }
 
     // If true, don't let multiple meganavs be open simultaneously
-    if (!isThirdLevelBtn && this.config.preventDuplicates) {
-      this.close();
-    }
+    // if (!isThirdLevelBtn && this.config.preventDuplicates) {
+    //   this.close();
+    // }
 
     if ($targetedMeganav.hasClass(this.config.drawerClass)) {
       var isExpanded = $el.attr('aria-expanded') === 'true';
