@@ -1,5 +1,5 @@
 
-{%- assign productList = collections.all.products -%}
+{%- assign productList = collections.all.products  -%}
 <div class="shop">
 
   {%- comment -%}
@@ -10,38 +10,23 @@
     <div class="shop-menu--title b-border">
       Shop
     </div>
-
-    <div class="shop-menu--short-by b-border">
-      <div class="shop-menu--short-by-sort">Sort</div>
-      <div class="shop-menu--short-by-list">Alphabetically</div>
-    </div>
-
+ 
     <div class="shop-menu--categories b-border">
       <div class="shop-menu--subtitle">
         Categories
       </div>
       <div class="shop-menu--categories-items">
-        <div class="shop-menu--categories-items-list">
-          <div class="shop-menu--categories-items-list-box"></div>
-            <div class="shop-menu--categories-items-list-item">
-              All
-            </div>
-          </div>
-      
-        {% for collection in collections %}
-        {%- comment -%}
-          {% if collection.image %}
-                <img src="{{ collection | img_url: '450x450' }}" alt="{{ collection.image.alt }}" />
-              {% else %}
-                <img src="{{ collection.products.first | img_url: '450x450' }}" alt="{{ collection.title | escape  }}" />
-          {% endif %}
-        {%- endcomment -%}
+        {%- assign allCollections = collections -%}
+        {% for collection in allCollections  %}
+       
           <div class="shop-menu--categories-items-list">
-            <div class="shop-menu--categories-items-list-box"></div>
-            <div class="shop-menu--categories-items-list-item">
-              {{collection.title}}
+              <div class="shop-menu--categories-items-list-item">
+                <a href="{{collection.url}}">
+                  {{ collection.title | capitalize }}
+                </a>
+              </div>
             </div>
-          </div>
+
         {% endfor %}
       </div>
     </div>
@@ -52,17 +37,11 @@
         Publishers
       </div>
       <div class="shop-menu--categories-items">
-        <div class="shop-menu--categories-items-list">
-          <div class="shop-menu--categories-items-list-box"></div>
-          <div class="shop-menu--categories-items-list-item">
-            All
-          </div>
-      </div>
+   
         {% for vendor in shop.vendors %}
           <div class="shop-menu--categories-items-list">
-            <div class="shop-menu--categories-items-list-box"></div>
             <div class="shop-menu--categories-items-list-item"> 
-              {{ vendor  | escape }}
+              {{ vendor  | link_to_vendor | capitalize }}
             </div>  
           </div>
         {% endfor %}
@@ -71,52 +50,18 @@
 
   </div> {%- comment -%} <---- END MENU ----> {%- endcomment -%}
   
-  
   {%- comment -%}
   -------------  RIGHT PRODUCT ----------------
   {%- endcomment -%}
   <div class="shop-products">
-    {% for product in productList %}
-      <div class="shop-products-item">
-          {% include 'product-card' product: product %}
-      </div>
-    {% endfor %}
+      {% for product in productList limit:9 %}
+        <div class="shop-products-item">
+            {% include 'product-card' product: product %}
+        </div>
+      {% endfor %}
+
   </div>
 </div>
-
-
-
-
-
-
-{%- comment -%}
-
-<div data-section-id="{{ section.id }}" data-section-type="collection-filters">
-  {%- if section.settings.product_tags_enable and collection.all_tags.size > 0 -%}
-    <div class="collection-sort">
-      <label for="SortTags" class="collection-sort__label">{{ 'collections.sorting.title_tags' | t }}</label>
-      <select name="SortTags" id="SortTags" aria-describedby="a11y-refresh-page-message a11y-selection-message" class="collection-sort__input">
-        <option value="{{ collection.url }}">{{ 'collections.sorting.all_of_collection' | t }}</option>
-        {%- for tag in collection.all_tags -%}
-          {%- assign new_url = tag | link_to_tag: tag | split: 'href="' | last | split: '"' | first -%}
-          <option value="{{ new_url }}"{% if current_tags contains tag %} selected="selected"{% endif %}>{{ tag }}</option>
-        {%- endfor -%}
-      </select>
-    </div>
-  {%- endif -%}
-  {%- if section.settings.product_sorting_enable -%}
-    <div class="collection-sort">
-      {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
-      <label for="SortBy" class="collection-sort__label">{{ 'collections.sorting.title' | t }}</label>
-      <select name="sort_by" id="SortBy" aria-describedby="a11y-refresh-page-message a11y-selection-message" class="collection-sort__input">
-        {%- for option in collection.sort_options -%}
-          <option value="{{ option.value }}"{% if sort_by == option.value %} selected="selected"{% endif %}>{{ option.name }}</option>
-        {%- endfor -%}
-      </select>
-    </div>
-  {%- endif -%}
-</div>
-{%- endcomment -%}
 
 {% schema %}
 {

@@ -1260,7 +1260,7 @@ window.Meganav = (function() {
   Meganav.prototype.init = function() {
     var $openBtn = this.config.$meganavToggle;
 
-    $openBtn.on('click', $.proxy(this.requestMeganav, this));
+    $openBtn.on('mouseover', $.proxy(this.requestMeganav, this));
 
     if (this.config.closeThirdLevelOnBlur) {
       this.config.$meganavLinkThirdLevel.on(
