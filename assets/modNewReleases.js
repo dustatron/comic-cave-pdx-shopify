@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const makePageObj = () => {
     let pageObj = {};
     let currentIndex = 0;
+    
     for (let i = 0; i < state.numberOfPages(); i++) {
       let pageItems = state.selectedData.slice(
         currentIndex,
@@ -71,13 +72,31 @@ document.addEventListener("DOMContentLoaded", () => {
     showPageCount.innerHTML = state.numberOfPages();
 
     state.pageObj[`${page}`].map((comic, index) => {
-      showDisplay.innerHTML += `<div class="comic-item">
-        <div>
-          <img border="0" src="https://previewsworld.com/SiteImage/CatalogThumbnail/${comic.StockNo}" style="width:120px;vertical-align:middle;">
+      const titleLink = comic.Title.split(' ').join('-').replace(/[|#&;$%@"<>()+,]/g, "");
+
+      showDisplay.innerHTML += `
+      <a href="/products/${titleLink}" class="product-card">
+        <div class="product-card__image-container">
+          <div class="product-card__image-wrapper">
+          <img class="lazyload"
+          data-src="https://previewsworld.com/SiteImage/CatalogThumbnail/${comic.StockNo}"
+          data-widths="[100, 140, 180, 250, 305, 440, 610, 720, 930, 1080]"
+      
+          data-sizes="auto"
+          data-parent-fit="contain"
+          data-image
+          alt="comic cover">
+        
+          </div>
         </div>
-        <div> ${comic.Title} </div>
-        <div> ${comic.Publisher} </div>
-      </div>`;
+       
+          <div>
+          </div>
+          <div> ${comic.Title} </div>
+          <div> ${comic.Publisher} </div>
+
+      </a>
+      `;
     });
   }
 
