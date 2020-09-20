@@ -1,0 +1,16 @@
+
+<div class="page-width">
+  <h1 class="small--text-center">{{ page.title }}</h1>
+  <div class="content-block">
+    <div class="rte rte--indented-images">
+       <script type="text/javascript" src="https://retailerservices.diamondcomics.com/Widgets/NewReleases/5531c97f9a924834a27e41be8f361496"></script>
+      {{ 'modNewReleases.js' | asset_url | script_tag }}
+		<button id="back"><< Back </button>
+        <div>Page <span id="page"></span> of <span id="pageCount"></span> </div>
+        <button id="forward" >Forward >> </button>
+        <div id="display" class='comic-list'></div>	
+    </div>
+  </div>
+
+  {% section 'featured-products-subsection' %}
+</div>
