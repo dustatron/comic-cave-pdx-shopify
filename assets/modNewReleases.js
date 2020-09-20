@@ -38,18 +38,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const makePageObj = () => {
     let pageObj = {};
     let currentIndex = 0;
-    
+    let dataSet = state.selectedData;
+    let comicCount = state.comicsPerPage();
+
     for (let i = 0; i < state.numberOfPages(); i++) {
-      let pageItems = state.selectedData.slice(
-        currentIndex,
-        currentIndex + state.comicsPerPage()
-      );
+      let pageItems = dataSet.slice(currentIndex, comicCount);
       pageObj[i] = pageItems;
-      currentIndex += state.numberOfPages();
+      dataSet.splice(0, comicCount);
+      // currentIndex += state.numberOfPages();
+
     }
     return (state.pageObj = pageObj);
   };
-
+  
   function changePage(direction) {
     if (direction === "back" && state.selectedPage > 0) {
       state.selectedPage -= 1;
