@@ -1,7 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Grab initial data set
   const data = DmdNTWSettings_5531c97f9a924834a27e41be8f361496;
-  const { curWeekDate, dates, pageItems } = data;
+  const {
+    curWeekDate,
+    dates,
+    pageItems
+  } = data;
 
   let state = {
     columns: 3,
@@ -50,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     return (state.pageObj = pageObj);
   };
-  
+
   function changePage(direction) {
     if (direction === "back" && state.selectedPage > 0) {
       state.selectedPage -= 1;
@@ -72,32 +76,34 @@ document.addEventListener("DOMContentLoaded", () => {
     showNumber.innerHTML = state.selectedPage + 1;
     showPageCount.innerHTML = state.numberOfPages();
 
+    //src="https://previewsworld.com/SiteImage/CatalogThumbnail/${comic.StockNo}"
+    //${titleLink}
+    // ${comic.Title}
+    //${comic.Publisher}
+
     state.pageObj[`${page}`].map((comic, index) => {
       const titleLink = comic.Title.split(' ').join('-').replace(/[|#&;$%@"<>()+,]/g, "");
 
       showDisplay.innerHTML += `
-      <a href="/products/${titleLink}" class="product-card">
-        <div class="product-card__image-container">
-          <div class="product-card__image-wrapper">
-          <img class="lazyload"
-          data-src="https://previewsworld.com/SiteImage/CatalogThumbnail/${comic.StockNo}"
-          data-widths="[100, 140, 180, 250, 305, 440, 610, 720, 930, 1080]"
-      
-          data-sizes="auto"
-          data-parent-fit="contain"
-          data-image
-          alt="comic cover">
-        
+        <a href="${titleLink}" class="product-card new-releases-item">
+          <div class="product-card__image-container">
+            <div class="product-card__image-wrapper">
+              <div style="max-width: 100%;" data-image-id="${comic.StockNo}" data-image-with-placeholder-wrapper>
+                <div class="new-releases--comic-img">
+                  <img class="lazyload" src="https://previewsworld.com/SiteImage/CatalogThumbnail/${comic.StockNo}" alt="${comic.Title}" >
+                </div>
+                <div class="placeholder-background--animation" data-image-placeholder></div>
+              </div>
+            </div>
           </div>
-        </div>
-       
-          <div>
+          <div class="product-card__info">
+            <div class="product-card__brand">${comic.Publisher}</div>
+            <div class="product-card__name">${comic.Title}</div>
           </div>
-          <div> ${comic.Title} </div>
-          <div> ${comic.Publisher} </div>
-
-      </a>
-      `;
+          <div class="product-card__overlay">
+            <span class="btn product-card__overlay-btn">View</span>
+          </div>
+        </a>`;
     });
   }
 

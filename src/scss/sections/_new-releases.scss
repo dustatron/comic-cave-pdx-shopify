@@ -1,4 +1,9 @@
 .new-releases {
+
+  &-item {
+    width: 33%;
+  }
+
   &-menu {
     width: 100%;
     height: 5em;
@@ -30,6 +35,18 @@
       }
     }
 
+  }
+
+  &--comic {
+    &-img {
+      margin: auto;
+      padding: 10px;
+      img {
+        width: 155px;
+        height: 233px;
+
+      }
+    }
   }
 
   &-list {
