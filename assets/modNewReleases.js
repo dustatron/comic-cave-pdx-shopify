@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const titleLink = comic.Title.split(' ').join('-').replace(/[|#&;$%@"<>()+,]/g, "");
 
       showDisplay.innerHTML += `
-        <a href="${titleLink}" class="product-card new-releases-item">
+        <a href="/products/${titleLink}" class="product-card new-releases-item">
           <div class="product-card__image-container">
             <div class="product-card__image-wrapper">
               <div style="max-width: 100%;" data-image-id="${comic.StockNo}" data-image-with-placeholder-wrapper>
