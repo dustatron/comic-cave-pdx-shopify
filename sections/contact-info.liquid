@@ -1,6 +1,7 @@
 <div class="contact-info">
+  <h2>Store Location</h2>
   <div class="contact-info-address">
-    1924 N. Kilpatrick, Portland Oregon, 97217
+    {{section.settings.address}}
   </div>
   <div class="contact-info-content">
     <h2>
@@ -26,6 +27,11 @@
 {
   "name": "Contact Info",
   "settings": [
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Address"
+    },
     {
       "type": "text",
       "id": "call_title",
