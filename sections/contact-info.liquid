@@ -1,0 +1,54 @@
+<div class="contact-info">
+
+  <div class="contact-info-content">
+    <h2>
+      {{section.settings.call_title}}
+    </h2>
+    <div>
+      {{section.settings.phone_number}}
+    </div>
+  </div>
+
+  <div class="contact-info-content">
+    <h2>
+      {{section.settings.email_title}}
+    </h2>
+    <div>
+      {{section.settings.email_address}}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Info",
+  "settings": [
+    {
+      "type": "text",
+      "id": "call_title",
+      "label": "Phone Title"
+    },
+    {
+      "type": "richtext",
+      "id": "phone_number",
+      "label": "Phone Number"
+    },
+    {
+      "type": "text",
+      "id": "email_title",
+      "label": "Email Title"
+    },
+    {
+      "type": "richtext",
+      "id": "email_address",
+      "label": "Email Address"
+    }
+  ],
+  "presets": [
+      {
+        "category": "Comic Cave Content",
+        "name": "Contact Info"
+      }
+    ]
+}
+{% endschema %}

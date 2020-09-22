@@ -1,0 +1,33 @@
+<div class="contact-message">
+  <h2>
+    {{section.settings.message_title}}
+  </h2>
+  <div>
+    {{section.settings.message_body}}
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Contact Message",
+  "settings": [
+    {
+      "type": "text",
+      "id": "message_title",
+      "label": "Message Title"
+    },
+    {
+      "type": "richtext",
+      "id": "message_body",
+      "label": "Message Body"
+    }
+  ],
+  "presets": [
+      {
+        "category": "Comic Cave Content",
+        "name": "Contact message"
+      }
+    ]
+}
+{% endschema %}

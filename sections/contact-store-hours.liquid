@@ -1,0 +1,41 @@
+<div class="contact-store-hours">
+  <h2>{{section.settings.Store_name}}</h2>
+  <div class="contact-store-hours-box">
+
+    <div class="contact-store-hours-box-text">
+      {{section.settings.store_time}}
+    </div>
+    <div class="contact-store-hours-box-img">
+      <img src="{{ section.settings.store_img | img_url }}" alt="store image">
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Store Hours",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "store_img",
+      "label": "Store Photo"
+    },
+    {
+      "type": "text",
+      "id": "Store_name",
+      "label": "Store Hours Title"
+    },
+    {
+      "type": "richtext",
+      "id": "store_time",
+      "label": "Store Times"
+    }
+  ],
+  "presets": [
+      {
+        "category": "Comic Cave Content",
+        "name": "contact-hours"
+      }
+    ]
+}
+{% endschema %}
