@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let showDisplay = document.getElementById("display");
   let showNumber = document.getElementById("page");
   let showPageCount = document.getElementById("pageCount");
+  let showDate = document.getElementById("date");
+
   let buttonBack = document.getElementById("back");
   let buttonForward = document.getElementById("forward");
 
@@ -75,6 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     showNumber.innerHTML = state.selectedPage + 1;
     showPageCount.innerHTML = state.numberOfPages();
+    showDate.innerHTML = data.curWeekDate;
+    
 
     //src="https://previewsworld.com/SiteImage/CatalogThumbnail/${comic.StockNo}"
     //${titleLink}
@@ -85,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const titleLink = comic.Title.split(' ').join('-').replace(/[|#&;$%@"<>()+,]/g, "");
 
       showDisplay.innerHTML += `
-        <a href="/products/${titleLink}" class="product-card new-releases-item">
+<a href="https://www.previewsworld.com/Catalog/${comic.DiamdNo}" class="product-card new-releases-item" target="_blank">
           <div class="product-card__image-container">
             <div class="product-card__image-wrapper">
               <div style="max-width: 100%;" data-image-id="${comic.StockNo}" data-image-with-placeholder-wrapper>

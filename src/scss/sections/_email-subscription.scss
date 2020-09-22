@@ -1,6 +1,6 @@
 .email-subscription {
   display: flex;
-  background: #fff;
+  background: $white;
   margin-bottom: 51px;
   padding: 3em;
 
@@ -14,7 +14,7 @@
     width: 43%;
     border-radius: 5px;
     padding: 12px;
-    background: #F0F5FF;
+    background: $white-off;
     @include respond(tab-land) {
       width: 100%;
     }

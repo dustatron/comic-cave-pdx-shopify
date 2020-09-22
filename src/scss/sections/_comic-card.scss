@@ -27,7 +27,7 @@
       text-transform: uppercase;
       font-weight: 900;
       padding: 3px;
-      background: #4D72B8;
+      background: $blue-dark;
       color: white;
       border: 1px solid rgba(0, 0, 0, 0.3);
       box-shadow: 0px -3px 6px 1px rgba(51, 51, 51, 0.15);
@@ -82,9 +82,9 @@
       top: 3%;
       left: 50%;
       transform: translate(-45%);
-      background: #006eff;
+      background: $blue-lite;
       padding: 10px 30px;
-      color: #fff;
+      color: $white;
       display: inline-block;
       border-radius: 5px;
       font-weight: 700;

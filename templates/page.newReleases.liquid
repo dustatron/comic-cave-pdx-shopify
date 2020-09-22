@@ -9,15 +9,22 @@
       {%- comment -%}Load custom script that hijacks data from above script and restyles everything.{%- endcomment -%}
       {{ 'modNewReleases.js' | asset_url | script_tag }}
 
-      <div class="new-releases-menu">
-		    <button id="back" class="new-releases-menu-btn"><< Back </button>
-        <div class="new-releases-menu-numbers">Page <div id="page"></div> of <div id="pageCount"></div> </div>
-        <button id="forward" class="new-releases-menu-btn">Forward >> </button>
+      <div class="new-releases-date">
+        <span>Comics arriving on </span>
+        <span id="date">Date Here</span>
       </div>
-
-        <div id="display"  class="grid__item small--one-half medium-up--one-fifth new-releases"> 
+      <div class="new-releases-menu">
+		    <button id="back" class="new-releases-menu-btn"> Back </button>
+        <div class="new-releases-menu-numbers">Page <div id="page"></div> of <div id="pageCount"></div> </div>
+        <button id="forward" class="new-releases-menu-btn"> Forward </button>
+      </div>
+      {%- comment -%}
+      <div>
+      {%- endcomment -%}
+        <div id="display" class='new-releases-list'> 
 
           {%- comment -%}Script will fill with content{%- endcomment -%}
+          <div class="loading"></div>
         </div>	
 
     </div>
