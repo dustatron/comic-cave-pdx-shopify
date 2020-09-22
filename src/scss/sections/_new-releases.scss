@@ -14,6 +14,18 @@
     text-transform: uppercase;
     font-size: 20px;
   }
+  &-bottom-menu {
+    width: 100%;
+    height: 5em;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-top: 2px solid rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    @include respond(tab-port) {
+      font-size: 12px;
+    }
+  }
 
   &-menu {
     width: 100%;
@@ -26,6 +38,8 @@
     @include respond(tab-port) {
       font-size: 12px;
     }
+
+    
 
     &-btn {
       background: $blue-lite;
@@ -74,4 +88,9 @@
       width: 33%;
     }
   }
+}
+
+.off {
+  opacity: .5;
+  cursor: not-allowed;
 }

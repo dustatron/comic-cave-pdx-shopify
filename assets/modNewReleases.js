@@ -24,11 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Grab dom elements
   let showDisplay = document.getElementById("display");
   let showNumber = document.getElementById("page");
+  let showNumber2 = document.getElementById("page-2");
   let showPageCount = document.getElementById("pageCount");
+  let showPageCount2 = document.getElementById("pageCount-2");
   let showDate = document.getElementById("date");
 
   let buttonBack = document.getElementById("back");
+  let buttonBack2 = document.getElementById("back-2");
   let buttonForward = document.getElementById("forward");
+  let buttonForward2 = document.getElementById("forward-2");
 
   // Create event listeners
 
@@ -36,6 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
     changePage("back");
   });
   buttonForward.addEventListener("click", () => {
+    changePage("forward");
+  });
+  buttonBack2.addEventListener("click", () => {
+    changePage("back");
+  });
+  buttonForward2.addEventListener("click", () => {
     changePage("forward");
   });
 
@@ -60,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function changePage(direction) {
     if (direction === "back" && state.selectedPage > 0) {
       state.selectedPage -= 1;
+      setButtonState();
       return drawComics(state.selectedPage);
     }
 
@@ -68,16 +79,44 @@ document.addEventListener("DOMContentLoaded", () => {
       state.selectedPage + 1 < state.numberOfPages()
     ) {
       state.selectedPage += 1;
+      setButtonState();
       return drawComics(state.selectedPage);
     }
   }
 
+  // Button State
+  // Checks for start page or end page
+  // Then Changes look of buttons
+  function setButtonState() {
+    // Removes off class
+    buttonBack.classList.remove("off");
+    buttonBack2.classList.remove("off");
+    buttonForward.classList.remove("off");
+    buttonForward2.classList.remove("off");
+
+    // Checks for start page
+    if(state.selectedPage === 0) {
+      buttonBack.classList.add("off");
+      buttonBack2.classList.add("off");
+    }
+
+    // Checks for end page
+    if(state.selectedPage + 1 === state.numberOfPages()) {
+      buttonForward.classList.add("off");
+      buttonForward2.classList.add("off");
+    }
+  }
+
+  // Writes comic data to the page. 
   function drawComics(page) {
     showDisplay.innerHTML = "";
 
+    showDate.innerHTML = data.curWeekDate;
     showNumber.innerHTML = state.selectedPage + 1;
     showPageCount.innerHTML = state.numberOfPages();
-    showDate.innerHTML = data.curWeekDate;
+
+    showNumber2.innerHTML = state.selectedPage + 1;
+    showPageCount2.innerHTML = state.numberOfPages();
     
 
     //src="https://previewsworld.com/SiteImage/CatalogThumbnail/${comic.StockNo}"
@@ -89,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const titleLink = comic.Title.split(' ').join('-').replace(/[|#&;$%@"<>()+,]/g, "");
 
       showDisplay.innerHTML += `
-<a href="https://www.previewsworld.com/Catalog/${comic.DiamdNo}" class="product-card new-releases-item" target="_blank">
+        <a href="https://www.previewsworld.com/Catalog/${comic.DiamdNo}" class="product-card new-releases-item" target="_blank">
           <div class="product-card__image-container">
             <div class="product-card__image-wrapper">
               <div style="max-width: 100%;" data-image-id="${comic.StockNo}" data-image-with-placeholder-wrapper>
@@ -114,4 +153,5 @@ document.addEventListener("DOMContentLoaded", () => {
   // Start up script
   makePageObj();
   drawComics(0);
+  setButtonState();
 });

@@ -428,6 +428,22 @@
   font-size: 20px;
 }
 
+.new-releases-bottom-menu {
+  width: 100%;
+  height: 5em;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-top: 2px solid rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 62.5em) {
+  .new-releases-bottom-menu {
+    font-size: 12px;
+  }
+}
+
 .new-releases-menu {
   width: 100%;
   height: 5em;
@@ -486,6 +502,11 @@
 
 .new-releases-list-item {
   width: 33%;
+}
+
+.off {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .arrow_box {
