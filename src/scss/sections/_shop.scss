@@ -3,6 +3,9 @@
   width: 100%;
   background: $white;
   padding: 2em;
+  @include respond(tab-port) {
+    padding: 0;
+  }
 
   // Left Screen
   &-menu {
@@ -11,6 +14,10 @@
     a {
       color: $black;
 
+    }
+
+    @include respond(tab-port) {
+      width: 42%;
     }
 
     &--title {
@@ -61,8 +68,15 @@
     flex-wrap: wrap;
     justify-content: center;
 
+    @include respond(tab-port) {
+      width: 48%;
+    }
+
     &-item {
       width: 30%;
+      @include respond(tab-port) {
+        width: 100%;
+      }
     }
   }
 }

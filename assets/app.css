@@ -320,6 +320,12 @@
   padding: 2em;
 }
 
+@media only screen and (max-width: 62.5em) {
+  .shop {
+    padding: 0;
+  }
+}
+
 .shop-menu {
   padding: 10px;
   width: 20%;
@@ -327,6 +333,12 @@
 
 .shop-menu a {
   color: #000;
+}
+
+@media only screen and (max-width: 62.5em) {
+  .shop-menu {
+    width: 42%;
+  }
 }
 
 .shop-menu--title {
@@ -374,8 +386,20 @@
   justify-content: center;
 }
 
+@media only screen and (max-width: 62.5em) {
+  .shop-products {
+    width: 48%;
+  }
+}
+
 .shop-products-item {
   width: 30%;
+}
+
+@media only screen and (max-width: 62.5em) {
+  .shop-products-item {
+    width: 100%;
+  }
 }
 
 .b-border {
