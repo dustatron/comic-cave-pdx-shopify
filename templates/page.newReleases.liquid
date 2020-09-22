@@ -1,33 +1,34 @@
-
 <div class="page-width">
   <h1 class="small--text-center">{{ page.title }}</h1>
   <div class="content-block">
     <div class="new-releases">
       {%- comment -%}Load script from Diamond Distributor{%- endcomment -%}
-      <script type="text/javascript" src="https://retailerservices.diamondcomics.com/Widgets/NewReleases/5531c97f9a924834a27e41be8f361496"></script>
-      
+      <script type="text/javascript"
+        src="https://retailerservices.diamondcomics.com/Widgets/NewReleases/5531c97f9a924834a27e41be8f361496"></script>
+
       {%- comment -%}Load custom script that hijacks data from above script and restyles everything.{%- endcomment -%}
       {{ 'modNewReleases.js' | asset_url | script_tag }}
 
       <div class="new-releases-date">
-        <span>Comics arriving on </span>
-        <span id="date">Date Here</span>
+        <span> Arriving </span>
+        <span id="date"> Date Here </span>
       </div>
       <div class="new-releases-menu">
-		    <button id="back" class="new-releases-menu-btn"> Back </button>
-        <div class="new-releases-menu-numbers">Page <div id="page"></div> of <div id="pageCount"></div> </div>
+        <button id="back" class="new-releases-menu-btn"> Back </button>
+        <div class="new-releases-menu-numbers">Page <div id="page"></div> of <div id="pageCount"></div>
+        </div>
         <button id="forward" class="new-releases-menu-btn"> Forward </button>
       </div>
       {%- comment -%}
       <div>
-      {%- endcomment -%}
-        <div id="display" class='new-releases-list'> 
+        {%- endcomment -%}
+        <div id="display" class='new-releases-list'>
 
           {%- comment -%}Script will fill with content{%- endcomment -%}
           <div class="loading"></div>
-        </div>	
+        </div>
 
+      </div>
     </div>
-  </div>
 
-</div>
+  </div>
