@@ -414,6 +414,12 @@
   margin-bottom: 20px;
 }
 
+@media only screen and (max-width: 62.5em) {
+  .new-releases-menu {
+    font-size: 12px;
+  }
+}
+
 .new-releases-menu-btn {
   background: #006eff;
   width: 8em;
